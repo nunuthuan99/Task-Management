@@ -130,7 +130,7 @@ export class LoginPage extends React.Component {
           id={"btnStunningHover"}
           onClick={() => { this.handleClickButton() }}
           onMouseMove={(e) => this.handleMouseMoveButton(e)}
-        ><span>Hover me I'm awesome</span>
+        ><span>Login đi các trmúa hmề~</span>
         </button>
       </div>
 
