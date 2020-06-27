@@ -88,10 +88,5 @@ let result = Auth.signup([this.username, this.password,this.passwordconfirm]);
         {this.state.auth === 0 ? <div id="divWrong">Wrong Username/Password</div> : this.state.auth === -1 ? <div id ="divInvalid">Invalid Username/Password</div> :this.state.auth === -2? <div id="divWrong">Password not compatiple </div> : <div></div>}
       </div>
     )
-
-
-
   }
-
-  
 };
