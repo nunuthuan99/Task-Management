@@ -13,6 +13,7 @@ export class LoginPage extends React.Component {
     super(props)
     this.state = {
       auth: 2, // initial
+      signup: false,
     }
     this.username = ''
     this.password = ''
@@ -34,6 +35,11 @@ export class LoginPage extends React.Component {
     this.setState({ auth: result })
   }
 
+  handleSignupButton(){
+
+     this.setState({ signup: true })
+  }
+
   render() {
     
 
@@ -44,7 +50,7 @@ export class LoginPage extends React.Component {
         <div className="background"></div>
         <div className="grad"></div>
         <div className="header">
-          <div>Trmúa <span>hmề</span></div>
+          <div>Clown <span>7</span></div>
         </div>
         <br />
         <div className="login">
@@ -66,17 +72,23 @@ export class LoginPage extends React.Component {
               onClick={() => { this.handleClickButton() }}
             >Login
           </button>
+          <br />
+          <button
+              onClick={() => { this.handleSignupButton() }}
+            >SignUp
+          </button>
         </div>
       </div>
     )] // 2
     let loginSuccessful = [(<Redirect to="/homepage" />)] // 1
-
-    return (
+    let signupSuccessful = [(<Redirect to="/signup" />)]
+     return (
       <div>
         {this.state.auth === 1 ? loginSuccessful : login}
+        {this.state.signup == true ? signupSuccessful : <div></div>}
         {this.state.auth === 0 ? <div id="divWrong">Wrong Username/Password</div> : this.state.auth === -1 ? <div id ="divInvalid">Invalid Username/Password</div> : <div></div>}
       </div>
     )
+
   }
 };
-
