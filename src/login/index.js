@@ -1,7 +1,7 @@
 import React from "react";
 import { LoginPage } from "./login.page";
 import  Homepage  from "../homepage/index";
-
+import Signup from "../signup/index";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
@@ -12,8 +12,7 @@ export default function Login() {
                 <Switch>
                     <Route exact path="/homepage" component={ Homepage } />
                     <Route exact path="/" component={ LoginPage } />
-                    <Route path="*" component={() => "404 NOT FOUND"} />
-
+                    <Route exact path="/signup" component={ Signup } />
                 </Switch>
             </div>
         </BrowserRouter>
