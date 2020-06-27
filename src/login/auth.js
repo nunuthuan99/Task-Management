@@ -1,17 +1,43 @@
-class Auth {
+import React, { useState } from "react";
+var firebase = require("firebase/app");
 
-  listAcc = [['1', '2'], [], []]
+// Add the Firebase products that you want to use
+require("firebase/auth");
+require("firebase/firestore");
+class Auth extends React.Component{
 
-  login(inputAcc) {
-    if (String(inputAcc[0]) === "" || String(inputAcc[1]) === "") return -1 // invalid input (missing username or password)
-    if (String(inputAcc[0]) === this.listAcc[0][0] && String(inputAcc[1]) === this.listAcc[0][1]) return 1 // login completely
-    return 0 // username/password is wrong
+  signIn(email,password){
+    if (email === "" || password === "") return -1 
+    firebase.auth().signInWithEmailAndPassword(email,password)
+    .then(function(firebaseUser) {
+      console.log("success")
+      isValid = 1
+
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log("failed")
+      isValid = 0
+    });
+    
   }
 
-  // logout(acc, cb) {
-  //   this.authenticated = false;
-  //   cb();
-  // }
+  login(inputAcc) { 
+    setTimeout(() => this.signIn(String(inputAcc[0]), String(inputAcc[1])), 1);
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var uid = user.uid;
+        console.log(uid)
+        isValid = 1
+        // ...
+      } else {
+        
+      }
+    });
+    return isValid
+  }
 
 }
 

@@ -1,8 +1,12 @@
 import React from "react";
 import Auth from "./auth";
 import { Redirect } from "react-router-dom";
+import * as firebase from "firebase/app";
 
+import "firebase/auth";
+import "firebase/firestore";
 import "./style.css";
+
 
 export class LoginPage extends React.Component {
   constructor(props) {
@@ -13,6 +17,7 @@ export class LoginPage extends React.Component {
     this.username = ''
     this.password = ''
   }
+
 
   handleChangeUsername(e) {
     this.username = e.target.value
@@ -30,7 +35,11 @@ export class LoginPage extends React.Component {
   }
 
   render() {
+    
+
+
     var login = [(
+
       <div>
         <div className="background"></div>
         <div className="grad"></div>
