@@ -170,9 +170,9 @@ input:focus::placeholder {
   font-family: 'Exo', sans-serif;
 	font-size: 20px;
   font-weight: 400;
-  top: 61%;
+  top: 75%;
   left: 50%;
-  color: rgb(210, 231, 133);
+  color: #733570;
   z-index: 2;
 }
 
