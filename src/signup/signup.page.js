@@ -29,7 +29,7 @@ export class SignupPage extends React.Component {
     this.passwordconfirm = e.target.value
   }
 
-handleClickButton(){
+handleSignUpButton(){
   
 let result = Auth.signup([this.username, this.password,this.passwordconfirm]);
     if (result === 1) {
@@ -81,11 +81,11 @@ let result = Auth.signup([this.username, this.password,this.passwordconfirm]);
         </div>
       </div>
     )] // 2
-    let signupSuccessful = [(<Redirect to="/login" />)] // 1
+    let signupSuccessful = [(<Redirect to="/" />)] // 1
     return (
       <div>
-        {this.state.signup == true ? signupSuccessful : login }
-        {this.state.auth === 0 ? <div id="divWrong">Wrong Username/Password</div> : this.state.auth === -1 ? <div id ="divInvalid">Invalid Username/Password</div> : <div></div>}
+        {this.state.auth === 1? signupSuccessful : login }
+        {this.state.auth === 0 ? <div id="divWrong">Wrong Username/Password</div> : this.state.auth === -1 ? <div id ="divInvalid">Invalid Username/Password</div> :this.state.auth === -2? <div id="divWrong">Password not compatiple </div> : <div></div>}
       </div>
     )
 
@@ -95,4 +95,3 @@ let result = Auth.signup([this.username, this.password,this.passwordconfirm]);
 
   
 };
-

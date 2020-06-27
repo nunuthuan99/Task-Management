@@ -56,7 +56,7 @@ export class LoginPage extends React.Component {
         <div className="login">
           <input
             type="text"
-            placeholder="username"
+            placeholder="email"
             name="user"
             onChange={(e) => this.handleChangeUsername(e)}
           />
